@@ -10,6 +10,7 @@
 /* eslint no-shadow: ["error", { "allow": ["Node", "Comment"] }] */
 
 import React from "react";
+import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import ObserveSize from "react-observe-size";
 import BlankCanvasImage from "../../assets/images/blank_canvas.svg";
@@ -55,7 +56,8 @@ export default class DiagramCanvas extends React.Component {
 			new CanvasD3Layout(this.props.canvasInfo,
 				this.svgCanvasDivSelector,
 				this.props.config,
-				this.props.canvasController);
+				this.props.canvasController,
+				this.renderExternalObject);
 		this.focusOnCanvas();
 	}
 
@@ -191,6 +193,13 @@ export default class DiagramCanvas extends React.Component {
 	refreshOnSizeChange() {
 		if (this.canvasD3Layout) {
 			this.canvasD3Layout.refreshOnSizeChange();
+		}
+	}
+
+	renderExternalObject(reactObject, targetObjectSelector) {
+		const element = document.querySelector(targetObjectSelector);
+		if (element) {
+			ReactDOM.render(reactObject, element);
 		}
 	}
 

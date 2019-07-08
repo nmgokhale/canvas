@@ -126,7 +126,8 @@ export default class CanvasController {
 			selectionChangeHandler: null,
 			toolbarMenuActionHandler: null,
 			tipHandler: null,
-			layoutHandler: null
+			layoutHandler: null,
+			renderExternalObjectsHandler: null
 		};
 
 		this.commonCanvas = null;
@@ -1524,6 +1525,13 @@ export default class CanvasController {
 			menuDefinition = menuDefinition.concat({ divider: true }, { action: "saveToPalette", label: this.getLabel("node_saveToPalette", "Save to palette") });
 		}
 		return (menuDefinition);
+	}
+
+	renderExternalObjectsHandler() {
+		if (this.handlers.renderExternalObjectsHandler) {
+			return this.handlers.renderExternalObjectsHandler();
+		}
+		return null;
 	}
 
 	contextMenuHandler(source) {

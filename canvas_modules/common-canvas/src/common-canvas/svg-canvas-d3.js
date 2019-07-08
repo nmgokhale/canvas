@@ -48,12 +48,13 @@ const showLinksTime = false;
 
 export default class CanvasD3Layout {
 
-	constructor(canvasInfo, canvasDivSelector, config, canvasController) {
+	constructor(canvasInfo, canvasDivSelector, config, canvasController, renderExternalObjectFn) {
 		this.logger = new Logger(["CanvasD3Layout", "FlowId", canvasInfo.id]);
 		this.logger.logStartTimer("Constructor");
 
 		this.canvasController = canvasController;
 		this.objectModel = this.canvasController.getObjectModel();
+		this.renderExternalObjectFn = renderExternalObjectFn;
 
 		// Initialize the canvas div object
 		this.canvasDiv = this.initializeCanvasDiv(canvasDivSelector);
@@ -76,6 +77,7 @@ export default class CanvasD3Layout {
 			this.canvasDiv,
 			this.canvasController,
 			this.canvasInfo,
+			this.renderExternalObjectFn,
 			this.config);
 
 		this.logger.logEndTimer("Constructor", true);
@@ -134,6 +136,7 @@ export default class CanvasD3Layout {
 					this.canvasDiv,
 					this.canvasController,
 					this.canvasInfo,
+					this.renderExternalObjectFn,
 					config);
 			}
 
@@ -272,7 +275,7 @@ export default class CanvasD3Layout {
 }
 
 class CanvasRenderer {
-	constructor(pipelineId, canvasDiv, canvasController, canvasInfo, config, parentRenderer, parentSupernodeD3Selection) {
+	constructor(pipelineId, canvasDiv, canvasController, canvasInfo, renderExternalObjectFn, config, parentRenderer, parentSupernodeD3Selection) {
 		this.logger = new Logger(["CanvasRenderer", "PipeId", pipelineId]);
 		this.logger.logStartTimer("Constructor");
 		this.pipelineId = pipelineId;
@@ -284,6 +287,7 @@ class CanvasRenderer {
 		this.parentRenderer = parentRenderer; // Optional parameter, only provided with sub-flow in-place display.
 		this.parentSupernodeD3Selection = parentSupernodeD3Selection; // Optional parameter, only provided with sub-flow in-place display.
 		this.activePipeline = this.getPipeline(pipelineId); // Must come after line setting this.canvasInfo
+		this.renderExternalObjectFn = renderExternalObjectFn;
 		this.setDisplayState();
 
 		// An array of renderers for the supernodes on the canvas.
@@ -2536,6 +2540,42 @@ class CanvasRenderer {
 							.on("mousedown", (dec) => this.callDecoratorCallback(node, dec));
 
 						decoratorLabelSelection.exit().remove();
+
+						// Handle external object decoration
+						const objType = "node";
+						const trgGrp = nodeGrp;
+						const extClassName = `d3-${objType}-dec-ext`;
+						const externalObjectDecorations = d.decorations ? d.decorations.filter((dec) => dec.externalObject) : [];
+						const decExtSelector = this.getSelectorForClass(extClassName);
+						const decoratorExtSelection = trgGrp.selectAll(decExtSelector)
+							.data(externalObjectDecorations || [], function(dec) { return dec.id; });
+
+						decoratorExtSelection.enter()
+							.append("foreignObject")
+							.attr("data-id", (dec) => this.getId(`${objType}_dec_ext`, dec.id)) // Used in Chimp tests
+							.attr("data-pipeline-id", this.activePipeline.id)
+							.merge(decoratorExtSelection)
+							.attr("x", (dec) => this.getDecoratorX(dec, d, objType))
+							.attr("y", (dec) => this.getDecoratorY(dec, d, objType))
+							.attr("class", extClassName)
+							.each(function(dec) {
+								const divId = that.getId(`${objType}_dec_div`, dec.id, d.id);
+								const divSelector = that.getSelectorForId(`${objType}_dec_div`, dec.id, d.id);
+								const divObj = d3.select(this).selectAll(divSelector);
+
+								if (divObj.empty()) {
+									d3.select(this)
+										.append("xhtml:div")
+										.attr("data-id", divId)
+										.attr("data-pipeline-id", that.activePipeline.id);
+								}
+								const objectToRender = that.canvasController.renderExternalObjectsHandler(dec);
+								if (objectToRender) {
+									that.renderExternalObjectFn(objectToRender, divSelector);
+								}
+							});
+
+						decoratorExtSelection.exit().remove();
 					}
 				});
 
@@ -2809,6 +2849,7 @@ class CanvasRenderer {
 					this.canvasDiv,
 					this.canvasController,
 					this.canvasInfo,
+					this.renderExternalObjectFn,
 					this.config,
 					this,
 					supernodeD3Object);

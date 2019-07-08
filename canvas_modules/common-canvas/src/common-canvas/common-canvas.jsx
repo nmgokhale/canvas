@@ -246,7 +246,8 @@ export default class CommonCanvas extends React.Component {
 			tipHandler: props.tipHandler,
 			layoutHandler: props.layoutHandler,
 			idGeneratorHandler: props.idGeneratorHandler,
-			selectionChangeHandler: props.selectionChangeHandler
+			selectionChangeHandler: props.selectionChangeHandler,
+			renderExternalObjectsHandler: props.renderExternalObjectsHandler
 		});
 	}
 
@@ -533,6 +534,7 @@ CommonCanvas.propTypes = {
 	layoutHandler: PropTypes.func,
 	idGeneratorHandler: PropTypes.func,
 	selectionChangeHandler: PropTypes.func,
+	renderExternalObjectsHandler: PropTypes.func,
 	rightFlyoutContent: PropTypes.object,
 	showRightFlyout: PropTypes.bool
 };

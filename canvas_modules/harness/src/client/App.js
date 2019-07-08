@@ -1791,6 +1791,8 @@ class App extends React.Component {
 			enableZoomIntoSubFlows: this.state.selectedZoomIntoSubFlows
 		};
 
+		let renderExternalObjectsHandler = null;
+
 		if (this.state.selectedNodeLayout === BLUE_ELLIPSES_LAYOUT) {
 			commonCanvasConfig = Object.assign({}, commonCanvasConfig, {
 				enableNodeLayout:
@@ -1870,6 +1872,17 @@ class App extends React.Component {
 					minInitialLine: 75,
 					portArcSpacing: 15
 				}
+			});
+		} else if (this.state.selectedNodeLayout === "AUTO_AI_LAYOUT") {
+			const onClick = () => {
+				// console.log("Click onClick");
+			};
+
+			renderExternalObjectsHandler = () =>
+				<div onClick={onClick}><img src="/images/down-triangle.svg" /></div>;
+
+			commonCanvasConfig = Object.assign({}, commonCanvasConfig, {
+				enableNodeFormatType: "Horizontal"
 			});
 		}
 
@@ -2002,6 +2015,7 @@ class App extends React.Component {
 				selectionChangeHandler={this.selectionChangeHandler}
 				layoutHandler={this.layoutHandler}
 				tipHandler={this.tipHandler}
+				renderExternalObjectsHandler={renderExternalObjectsHandler ? renderExternalObjectsHandler : null}
 				toolbarConfig={toolbarConfig}
 				notificationConfig={notificationConfig}
 				contextMenuConfig={contextMenuConfig}
