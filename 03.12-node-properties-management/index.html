@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../03.02.03-notification-config/">
+        <link rel="prev" href="../03.11-internal-actions/">
       
       
-        <link rel="next" href="../03.02.05-keyboard-config/">
+        <link rel="next" href="../03.30.01-context-menu-wrapper/">
       
       
       <link rel="icon" href="../assets/FlowIcon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Context Menu Config - Elyra Canvas</title>
+        <title>Node Properties Management - Elyra Canvas</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context-menu-config-object" class="md-skip">
+        <a href="#node-properties-management" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Context Menu Config
+              Node Properties Management
             
           </span>
         </div>
@@ -1133,10 +1133,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1159,11 +1157,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -1179,7 +1177,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Config Objects
@@ -1282,19 +1280,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../03.02.04-context-menu-config/" class="md-nav__link">
         
   
   
@@ -1305,7 +1294,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2126,10 +2114,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../03.12-node-properties-management/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Node Properties Management
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2140,6 +2150,71 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-enable-a-way-to-show-the-properties-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to enable a way to show the properties panel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-put-together-the-ui-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to put together the UI components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-display-the-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to display the properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-store-properties-associated-with-nodes-in-the-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to store properties associated with nodes in the flow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2748,6 +2823,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-enable-a-way-to-show-the-properties-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to enable a way to show the properties panel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-put-together-the-ui-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to put together the UI components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-display-the-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to display the properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-store-properties-associated-with-nodes-in-the-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to store properties associated with nodes in the flow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2762,7 +2890,7 @@
 
 
   
-    <a href="https://github.com/elyra-ai/canvas/edit/main/docs/03.02.04-context-menu-config.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/elyra-ai/canvas/edit/main/docs/03.12-node-properties-management.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2770,33 +2898,42 @@
   
 
 
-<h1 id="context-menu-config-object">Context Menu Config object<a class="headerlink" href="#context-menu-config-object" title="Permanent link">&para;</a></h1>
-<p>The context menu config object configures whether certain actions are available in the default context menu.</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">contextMenuConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="nx">enableCreateSupernodeNonContiguous</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">       </span><span class="nx">defaultMenuEntries</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nx">saveToPalette</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">createSupernode</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">displaySupernodeFullPage</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">colorBackground</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">       </span><span class="p">}</span>
-<span class="w">    </span><span class="p">};</span>
-</code></pre></div>
+<h1 id="node-properties-management">Node properties management<a class="headerlink" href="#node-properties-management" title="Permanent link">&para;</a></h1>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<p>Most applications enable their users to view and, if authorized, edit properties of the nodes in a flow.  Typically, applications do this by displaying a properties panel linked to the node type. Since different applications have different preferences for managing properties, it is left to the application to manage the relationship between the nodes in the flow and properties display and editing.</p>
+<p>If node properties display and editing is required, there are a number of decisions the application development team need to make:</p>
 <ul>
-<li>
-<p><strong>enableCreateSupernodeNonContiguous</strong> - Allows the creation of supernodes from non-contiguous nodes. When set to <code>true</code>, the &ldquo;Create supernode&rdquo; menu item will be added to the default context menu when the currently selected nodes are contiguous or non-contiguous. When set to <code>false</code>, the &ldquo;Create supernode&rdquo; menu item is only added to the default context menu when the selected nodes are contiguous. The default value is <code>false</code>.</p>
-</li>
-<li>
-<p><strong>defaultMenuEntries</strong> - Controls what entries are generated in the default context menu generated by Common Canvas. This has the following properties:</p>
+<li>How to enable a way for the user to display the properties panel</li>
+<li>How to put together the UI components (checkbox, radio button, list, table, etc) needed to allow the user to view and edit the properties</li>
+<li>Where to display the properties</li>
+<li>Where to store properties associated with nodes in the flow</li>
+</ul>
+<h3 id="how-to-enable-a-way-to-show-the-properties-panel">How to enable a way to show the properties panel<a class="headerlink" href="#how-to-enable-a-way-to-show-the-properties-panel" title="Permanent link">&para;</a></h3>
+<p>This can be enabled in different ways depending on the application design:</p>
 <ul>
-<li>&lsquo;saveToPalette&rsquo; - This is a boolean. The default is false. If set to true, Common Canvas will add a &lsquo;Save to palette&rsquo; option to the default node context menu.</li>
-<li>&lsquo;createSupernode&rsquo; - This is a boolean. The default is true. If set to false, Common Canvas will not show the &lsquo;Create Supernode&rsquo; option in the default context menu for nodes.</li>
-<li>&lsquo;displaySupernodeFullPage&rsquo; - This is a boolean. The default is true. If set to false, Common Canvas will not show the &lsquo;Display full page&rsquo; option in the default context menu for supernodes. When true, the option will be displayed. Clicking that option navigates the user to the full page view of the supernode&rsquo;s pipeline as if the user had clicked the expansion icon of the expanded in-place supernode view.</li>
-<li>&lsquo;colorBackground&rsquo; - This is a boolean. The default is true. If set to false, Common Canvas will not show the &lsquo;Color background&rsquo; option in the default context menu for comments. When true, the option will be displayed.</li>
+<li>A properties panel could be opened when the user double-clicks on a node. In this case, the Common Canvas <a href="../03.03.09-click-action-handler/">clickActionHandler callback</a> function will be called.</li>
+<li>Properties could be displayed based on a single click on the node. A single click would also cause the <a href="../03.03.09-click-action-handler/">clickActionHandler callback</a> function to be called.</li>
+<li>The application design might specify that an “Edit Properties” option should be displayed in the <a href="../01.03-context-menu/">context menu</a> or <a href="../01.04-context-toolbar/">context toolbar</a> for the node. To do this, Common Canvas allows the application to customize the default context menu for nodes using the <a href="../03.03.01-context-menu-handler/">contextMenuHandler callback</a> function. When the user clicks the option in the menu the <a href="../03.03.03-edit-action-handler/">editActionHandler callback</a> function is called</li>
+<li>Some combination of the above</li>
 </ul>
-</li>
+<h3 id="how-to-put-together-the-ui-components">How to put together the UI components<a class="headerlink" href="#how-to-put-together-the-ui-components" title="Permanent link">&para;</a></h3>
+<p>This can be done in a couple of ways:</p>
+<ul>
+<li>Write your own React object using components from IBM&rsquo;s <a href="https://carbondesignsystem.com/all-about-carbon/what-is-carbon/">Carbon library</a> to present the properties to the user for editing</li>
+<li>Use the <a href="../04-common-properties/">Common Properties</a> components of Elyra Canvas. The application provides a JSON document to <code>&lt;CommonProperties&gt;</code> that describes how the properties should be presented. Common Properties will then construct the appropriate Carbon components, and associated code, to present the properties to the user.</li>
 </ul>
-<p>[Note: If any host app wants more control over the default context menu here, please open an issue.]</p>
+<h3 id="where-to-display-the-properties">Where to display the properties<a class="headerlink" href="#where-to-display-the-properties" title="Permanent link">&para;</a></h3>
+<p>The properties UI can be displayed to the user in a number of ways:</p>
+<ul>
+<li>Typically applications show the properties in a right-side flyout. Common Canvas provides a <a href="../03-common-canvas/#right-flyout-panel-parameters">right-side flyout panel</a> which, by default, is empty. The application can display the properties for the node in the right flyout by specifying a JSX expression to the <code>rightFlyoutContent</code> prop of Common Canvas. The JSX expression could specify a <code>&lt;CommonProperties&gt;</code> react object.  The application can also show and hide the flyout by setting the <code>showRightFlyout</code> boolean prop of Common Canvas.</li>
+<li>The application can display its own dialog over the top of the canvas to show the properties.</li>
+</ul>
+<h3 id="where-to-store-properties-associated-with-nodes-in-the-flow">Where to store properties associated with nodes in the flow<a class="headerlink" href="#where-to-store-properties-associated-with-nodes-in-the-flow" title="Permanent link">&para;</a></h3>
+<p>The application can store properties data anywhere, depending on its architecture. Options include:</p>
+<ul>
+<li>Incorporating the data into the pipeline flow JSON object/document for simultaneous saving.</li>
+<li>Storing data in the application&rsquo;s own repository, allowing for separate management of properties and flow data.</li>
+</ul>
 
 
 
@@ -2826,7 +2963,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../03.02.03-notification-config/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notification Config">
+          <a href="../03.11-internal-actions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Internal Actions">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2836,20 +2973,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Notification Config
+                Internal Actions
               </div>
             </div>
           </a>
         
         
           
-          <a href="../03.02.05-keyboard-config/" class="md-footer__link md-footer__link--next" aria-label="Next: Keyboard Config">
+          <a href="../03.30.01-context-menu-wrapper/" class="md-footer__link md-footer__link--next" aria-label="Next: Context Menu Wrapper">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Keyboard Config
+                Context Menu Wrapper
               </div>
             </div>
             <div class="md-footer__button md-icon">
